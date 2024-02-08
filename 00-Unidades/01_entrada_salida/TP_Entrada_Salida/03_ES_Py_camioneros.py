@@ -47,24 +47,25 @@ class App(customtkinter.CTk):
     
     def btn_cantidad_camiones_on_click(self):
         toneladas = self.txt_toneladas.get()
-        #kilometros = self.txt_kilometros.get()
+        toneladas = int(toneladas)
 
-        toneladas = float(toneladas)
-       ## kilometros = float (kilometros)
-
-        cantidad_de_camiones = toneladas / 3500
-        alert ("Informacion","La cantidad de camiones que necesita son " + str(cantidad_de_camiones))
+        cantidad_de_carga_camion = toneladas * 350 / 1000
+        cantidad_de_carga_camion = int(cantidad_de_carga_camion)
+        
+        alert ("Informacion","La cantidad de camiones que necesita son " + str(cantidad_de_carga_camion))
 
     def btn_tiempo_llegada_on_click(self):
         kilometros = self.txt_kilometros.get()
 
-        kilometros = float (kilometros)
+        kilometros = int(kilometros)
 
-        tiempo_llegada = kilometros * ( 90 / 100) / 100
+        tiempo = kilometros / 90
 
-        tiempo_llegada = float (tiempo_llegada)
+        minutos = (tiempo * 60) % 60
 
-        alert ("Informacion","El tiempo de llegada a 90KM/H es " + str(tiempo_llegada))
+        resultado = "%02d:%07d"%(tiempo, minutos)
+
+        alert ("Informacion","El tiempo de llegada a 90KM/H es " + (resultado))
 
     
     
