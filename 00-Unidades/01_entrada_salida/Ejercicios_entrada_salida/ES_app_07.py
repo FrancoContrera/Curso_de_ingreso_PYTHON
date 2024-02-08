@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Franco
+apellido:Contrera
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -49,16 +49,47 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        pass
+        Numero_uno_str = self.txt_operador_a.get()
+        Numero_dos_str = self.txt_operador_b.get()
+
+        Numero_uno = int(Numero_uno_str)
+        Numero_dos = int(Numero_dos_str)
+
+        Resultado = Numero_uno + Numero_dos
+
+        alert("Resultado","El resultado de la suma entre " + Numero_uno_str + " y " + Numero_dos_str + " es: " + str(Resultado))
 
     def btn_restar_on_click(self):
-        pass
+        Numero_uno_str = self.txt_operador_a.get()
+        Numero_dos_str = self.txt_operador_b.get()
+
+        Numero_uno = int(Numero_uno_str)
+        Numero_dos = int(Numero_dos_str)
+
+        Resultado = Numero_uno - Numero_dos
+        alert("Resultado", "El resultado de la resta entre " + Numero_uno_str + " y " + Numero_dos_str + " es: " + str(Resultado))
+
+        
 
     def btn_multiplicar_on_click(self):
-        pass
+        Numero_uno_str = self.txt_operador_a.get()
+        Numero_dos_str = self.txt_operador_b.get()
+
+        Numero_uno = int(Numero_uno_str)
+        Numero_dos = int(Numero_dos_str)
+
+        Resultado = Numero_uno * Numero_dos
+        alert("Resultado", "El resultado de la multiplicacion entre " + Numero_uno_str + " y " + Numero_dos_str + " es: " + str(Resultado))
 
     def btn_dividir_on_click(self):
-        pass
+        Numero_uno_str = self.txt_operador_a.get()
+        Numero_dos_str = self.txt_operador_b.get()
+
+        Numero_uno = int(Numero_uno_str)
+        Numero_dos = int(Numero_dos_str)
+
+        Resultado = Numero_uno / Numero_dos
+        alert("Resultado", "El resultado de la division entre " + Numero_uno_str + " y " + Numero_dos_str + " es: " + str(Resultado))
         
 if __name__ == "__main__":
     app = App()
