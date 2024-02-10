@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:Franco
+apellido:Contrera
 ---
 Ejercicio: entrada_salida_08
 ---
@@ -46,9 +46,10 @@ class App(customtkinter.CTk):
         valor1 = int(valor1_str)
         valor2 = int(valor2_str)
         
-        Resultado = float = valor1 / valor2
+        resultado1  = (valor1 / valor2) 
 
-        alert("Resultado","El resto de dividir" + Resultado )
+
+        alert("Info", f"El resto de dividir {valor1} por {valor2} es " + str(resultado1))
 
         
              
