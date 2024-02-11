@@ -6,8 +6,8 @@ import customtkinter
 import random
 
 '''
-nombre:
-apellido:
+nombre:Franco Ariel
+apellido:Contrera
 ---
 Ejercicio: if_09
 ---
