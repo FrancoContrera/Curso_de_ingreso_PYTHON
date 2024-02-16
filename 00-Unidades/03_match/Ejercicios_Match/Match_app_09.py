@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Franco Ariel
+apellido:Contrera
 ---
 Ejercicio: Match_09
 ---
@@ -57,10 +57,68 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        destinos = self.combobox_destino.get()
+
+        estaciones = self.combobox_estaciones.get()
+
+        tarifa_base = 15000
+
+        descuento_exclusivo = tarifa_base
+
+        match estaciones:
+            case 'Invierno':
+                match destinos:
+                    case 'Bariloche':
+                        mensaje = descuento_exclusivo * 1.20
+                    case 'Cataratas'|'Cordoba':
+                        mensaje = descuento_exclusivo * 0.90
+                    case 'Mar del plata':
+                        mensaje = descuento_exclusivo * 0.80        
+
+        match estaciones:
+            case 'Verano':
+                match destinos:
+                    case 'Bariloche':
+                        mensaje = descuento_exclusivo * 0.80
+                    case 'Cataratas'|'Cordoba':
+                        mensaje = descuento_exclusivo * 1.10
+                    case 'Mar del plata':
+                        mensaje = descuento_exclusivo * 1.20
+
+        match estaciones:
+            case 'Otoño'|'Primavera':
+                match destinos:
+                    case 'Bariloche':
+                        mensaje = descuento_exclusivo * 1.10
+                    case 'Cataratas':
+                        mensaje = descuento_exclusivo * 1.10
+                    case 'Mar del plata':
+                        mensaje = descuento_exclusivo * 1.10
+                    case _:
+                        mensaje = "Cordoba no tiene descuento"                  
+
+
+        alert ("UTN", mensaje)
+
+
+
             
     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+#Si es invierno: 
+ #       Bariloche tiene un aumento del 20% 
+  #      Cataratas y Córdoba tienen un descuento del 10%
+   #     Mar del plata tiene un descuento del 20%
+    #Si es Verano:
+     #   Bariloche tiene un descuento del 20%
+      #  Cataratas y Cordoba tienen un aumento del 10%
+       # Mar del plata tiene un aumento del 20%
+    #Si es Primavera u Otoño:
+     #   Bariloche tiene un aumento del 10%
+      #  Cataratas tiene un aumento del 10%
+      #  Mar del plata tiene un aumento del 10%
+      #  Córdoba tiene precio sin descuento

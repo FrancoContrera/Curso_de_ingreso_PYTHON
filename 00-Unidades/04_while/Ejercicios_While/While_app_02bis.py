@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:Franco Ariel
+apellido:Contrera
 ---
 Ejercicio: while_02bis
 ---
@@ -29,7 +29,16 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
+        contador_iteracion = 1
+        suma = 0
+
+        while contador_iteracion <= 10:
+            if contador_iteracion %2 == 0:
+                suma += contador_iteracion
+
+            contador_iteracion += 1    
+
+            alert ("Info", suma)
     
     
 if __name__ == "__main__":

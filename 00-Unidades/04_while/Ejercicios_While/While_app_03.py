@@ -29,7 +29,11 @@ class App(customtkinter.CTk):
         
     
     def btn_pedir_clave_on_click(self):
-        pass
+        clave = prompt("Clave","Ingrese Clave")
+        while clave != "utn750":
+            clave = prompt("Error","Reingrese Clave")
+
+        alert("INFORMACION","Bienvenido al banco")
     
     
 if __name__ == "__main__":
