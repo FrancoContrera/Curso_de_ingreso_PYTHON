@@ -1,6 +1,5 @@
 import tkinter
 from tkinter.messagebox import showinfo as alert
-from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
@@ -40,7 +39,30 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        acumulador_numeros = 0
+
+        while True:
+            numero = prompt("ingrese", "ingrese numeros")
+            if numero is None:
+                break
+            numero = int(numero)
+
+            if acumulador_numeros == 0:
+                maximo = numero
+                minimo = numero
+            else:
+                if numero > maximo:
+                    maximo = numero
+                if numero < minimo:
+                    minimo = numero
+
+            acumulador_numeros += 1
+
+        self.txt_maximo.delete(0, tkinter.END)
+        self.txt_maximo.insert(0, str(maximo))
+
+        self.txt_minimo.delete(0, tkinter.END)
+        self.txt_minimo.insert(0, str(minimo))
 
 
 if __name__ == "__main__":

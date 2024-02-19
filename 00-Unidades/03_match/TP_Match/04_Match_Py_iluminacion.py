@@ -43,9 +43,58 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        marca = self.combobox_marca.get()
+        cantidad = self.combobox_cantidad.get()
+        cantidad = int (cantidad)
+
+        match cantidad:
+            case 1|2:
+                descuento = 0
+            case 3:
+                match marca:
+                    case 'ArgentinaLuz':
+                        descuento = 15
+                    case 'FelipeLamparas':
+                        descuento = 10
+                    case _:
+                        descuento = 5
+            case 4:
+                match marca:
+                    case 'ArgentinaLuz'|'FelipeLamparas':
+                        descuento = 25
+                    case _:
+                        descuento = 20
+            case 5:
+                match marca:
+                    case 'ArgentinaLuz':
+                        descuento = 40
+                    case _:
+                        descuento = 30
+            case _:
+                descuento = 50
+
+        subtotal = 800 * cantidad
+        ahorro = subtotal * (descuento / 100)
+        total_con_descuento = subtotal - ahorro
+
+        ahorro_adicional = 0
+
+        if total_con_descuento > 4000:
+            ahorro_adicional = subtotal * (5 / 100)
+
+        total_final = total_con_descuento - ahorro_adicional
+
+        alert ("Info", f"El precio final es {total_final}") 
+
+
+
+
         
-    
+ ##		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
+#		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
+#		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
+#		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
+#		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.   
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

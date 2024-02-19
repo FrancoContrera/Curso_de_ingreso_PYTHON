@@ -1,6 +1,5 @@
 import tkinter
 from tkinter.messagebox import showinfo as alert
-from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
@@ -36,9 +35,31 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_acumulada = 0
+        producto = 1
 
-    
+        while True:
+            numero = prompt("Ingrese", "Ingreso de número")
+            if numero is None: 
+                break
+            
+            numero = float(numero)
+
+            if numero == 0:
+                break
+            if numero > 0:
+                suma_acumulada += numero
+            else:
+                producto *= numero
+
+        
+        self.txt_suma_acumulada.delete(0, tkinter.END)
+        self.txt_suma_acumulada.insert(0, str(suma_acumulada))
+
+        self.txt_producto.delete(0, tkinter.END)
+        self.txt_producto.insert(0, str(producto))
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

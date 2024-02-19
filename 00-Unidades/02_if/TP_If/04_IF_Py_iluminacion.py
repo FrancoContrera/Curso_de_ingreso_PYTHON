@@ -55,31 +55,31 @@ class App(customtkinter.CTk):
         descuento_adicional = 0
 
         if cantidad >= 6:
-            descuento = 0.5 #50%
+            descuento = 0.5
         elif cantidad == 5:
             if marca == "ArgentinaLuz":
-                descuento = 0.4  #40% 
+                descuento = 0.4 
             else:
-                descuento = 0.3  #30%
+                descuento = 0.3
 
         elif cantidad == 4:
             if marca in ["ArgentinaLuz", "FelipeLamparas"]:
-                descuento = 0.25  #25%
+                descuento = 0.25
             else:
-                descuento = 0.2  #20%
+                descuento = 0.2
 
         elif cantidad == 3:
             if marca == "ArgentinaLuz":
-                descuento = 0.15  #15%
+                descuento = 0.15
             elif marca == "FelipeLamparas":
-                descuento = 0.1  #10%
+                descuento = 0.1
             else:
-                descuento = 0.05  #5%
+                descuento = 0.05 
 
-        #calculos
+        
         precio_descuento = precio_total * (1 - descuento)
 
-        #cuenta con descuentos aplicados
+        
         if precio_descuento > 4000:
             descuento_adicional = 0.05
             precio_descuento -= precio_descuento * descuento_adicional

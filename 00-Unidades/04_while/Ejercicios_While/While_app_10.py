@@ -1,6 +1,5 @@
 import tkinter
 from tkinter.messagebox import showinfo as alert
-from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
@@ -37,9 +36,45 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_negativos = 0
+        suma_positivos = 0
+        cantidad_positivos = 0
+        cantidad_negativos = 0
+        cantidad_ceros = 0
 
-    
+        while True:
+            numero = prompt("Ingrese","Ingrese un numero")
+            if numero is None:
+                break
+
+            numero = float(numero)
+
+            if numero == 0:
+                cantidad_ceros += 1
+
+            elif numero > 0:
+                suma_positivos += numero
+                cantidad_positivos += 1
+
+            else:
+                suma_negativos += numero
+                cantidad_negativos += 1 
+            
+        diferencia = cantidad_positivos - cantidad_negativos
+
+        mensaje = ""
+        if cantidad_positivos != 0:
+            mensaje += f"Cantidad de números positivos ingresados: {cantidad_positivos}\n"
+        if cantidad_negativos != 0:
+            mensaje += f"Cantidad de números negativos ingresados: {cantidad_negativos}\n"
+        if cantidad_ceros != 0:
+            mensaje += f"Cantidad de ceros: {cantidad_ceros}\n"
+
+        mensaje += f"Diferencia entre la cantidad de positivos y negativos: {diferencia}"
+
+        alert("Resultados", mensaje)
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
